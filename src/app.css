@@ -4,11 +4,12 @@
     color: #fff;
     font-size: .8rem;
     justify-content: space-between;
+    margin-top: 6px;
     
 }
 
 
-.gf-followCard .gf-followCard-header {
+.gf-followCard-header {
     display: flex;
     align-items: center;
     gap: 4px;
@@ -41,19 +42,40 @@
 }
 
 .gf-followCard-button:hover{
-    background-color: #7783ed;
+    background-color: #8893f4;
     /* color: #fff; */
 }
-.gf-followCard-button .is-following {
+.gf-followCard-button.is-following {
 
-    border: 1px solid red;
+    border: 1px solid #bbb;
+    background: transparent;
+    color: #fff;
+    width: 140px;
 
 
 }
 .gf-followCard-button.is-following:hover {
-
-    background-color: rgb(255, 96, 96);
+    opacity: .8;
+    background-color: rgba(255, 0, 0, 0.13);
+    color:  rgb(255, 96, 96) ;
+    border: 1px solid  rgb(255, 96, 96);
 
 
 }
 
+.gf-followCard-button.is-following:hover .gf-unfollow {
+    display: block;
+}
+
+.gf-unfollow {
+    display: none;
+}
+
+.gf-follow{
+    display: block;
+}
+
+.gf-followCard-button.is-following:hover .gf-follow {
+    display: none;
+    transition: .3s esae all;
+}

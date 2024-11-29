@@ -1,11 +1,15 @@
 
 import { useState } from "react"
 
-export function TwitterFollowCard ({formatUserName, username = 'unknown', name= 'unknown'}) {
+export function TwitterFollowCard ({childern,  username, initialIsFollowing }) {
 
-    const [isFollowing, setIsFollowing] = useState(false)
+    const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
     // const isFollowing = state[0]
     // const setIsFollowing = state[1]
+    const webx= () => {
+        // Redirigir a x.com con el username proporcionado
+        window.location.href = `https://x.com/${username}`;
+      };
 
     const sigue = isFollowing ? 'Siguiendo' : 'Seguir'
 
@@ -18,18 +22,19 @@ export function TwitterFollowCard ({formatUserName, username = 'unknown', name= 
     return(
         <article className='gf-followCard'  >
         <header className='gf-followCard-header' >
-        <img className='gf-followCard-avatar' alt="avtar" src={`https://unavatar.io/${username}`}/>
+        <img className='gf-followCard-avatar' alt="avtar" src={`https://unavatar.io/${username}`} onClick={webx}/>
         <div className='gf-followCard-info'>
             <strong>
-                {name}
+                {childern}
             </strong>
-            <span className='gf-followCard-info-username' >{formatUserName(username)}</span>
+            <span className='gf-followCard-info-username' >@{username}</span>
         </div>
 
         </header>
         <aside>
             <button  className={buttonClassName} onClick={handleClick}  >
-               {sigue} 
+               <span className="gf-follow" >{sigue }</span>
+               <span className="gf-unfollow" >Dejar de seguir</span>
             </button>
         </aside>
 
